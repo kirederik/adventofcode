@@ -50,7 +50,7 @@ taskB() {
     echo "Oxygen: $oxygen"
     echo "CO2: $co2"
 
-    echo "Task B: $(( $((2#${oxygen})) * $((2#${co2})) ))"
+    echo "Task B: $(( 2#${oxygen} * 2#${co2} ))"
 }
 
 taskA() {
