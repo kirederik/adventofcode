@@ -75,33 +75,16 @@ taskB() {
         f=$(echo "$f" | tail +4)
 
         nine=$(echo "$f" | _find_containing $three)
-        zero_or_six=$(echo "$f" | grep -v $nine)
+        zero=$(echo "$f" | grep -v $nine | _find_containing $one)
+        six=$(echo "$f" | grep -v $nine | grep -v $zero)
 
-        maybe_five=$(echo "$two_or_five" | head -1)
-        maybe_two=$(echo "$two_or_five" | tail -1)
-        maybe_six=$(echo "$zero_or_six" | head -1)
-        maybe_zero=$(echo "$zero_or_six" | tail -1)
+        five=$(echo "$two_or_five" | head -1)
+        two=$(echo "$two_or_five" | tail -1)
 
-        if _contain $maybe_six $maybe_five; then
-            five=$maybe_five
-            two=$maybe_two
-            six=$maybe_six
-            zero=$maybe_zero
-        elif _contain $maybe_zero $maybe_five; then
-            five=$maybe_five
-            two=$maybe_two
-            zero=$maybe_six
-            six=$maybe_zero
-        elif _contain $maybe_six $maybe_two; then
-            five=$maybe_two
-            two=$maybe_five
-            zero=$maybe_zero
-            six=$maybe_six
-        else
-            five=$maybe_two
-            two=$maybe_five
-            six=$maybe_zero
-            zero=$maybe_six
+        if _contain $six $two; then
+            t=$two
+            two=$five
+            five=$t
         fi
 
         sorted_output=""
