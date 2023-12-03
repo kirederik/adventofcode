@@ -87,7 +87,7 @@ describe Day02 do
         expect(Day02.part2(@part1_input)).to equal(2286)
       end
 
-      it 'should return 2286 for the puzzle input' do
+      it 'should return 68638 for the puzzle input' do
         expect(Day02.part2(@puzzle_input)).to equal(68_638)
       end
     end
