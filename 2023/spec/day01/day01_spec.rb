@@ -5,7 +5,7 @@ require_relative '../../lib/day01/day01'
 
 describe Day01 do
   describe '#first_number' do
-    it 'returns the first number on the string', focus: true do
+    it 'returns the first number on the string' do
       expect(Day01.first_number('1asdfghjjl')).to eq(1)
       expect(Day01.first_number('asdfg21jjl')).to eq(2)
       expect(Day01.first_number('asdfgjjll3')).to eq(3)
