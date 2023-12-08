@@ -22,12 +22,12 @@ end
 
 describe Day052 do
   describe '#part2' do
-    it 'should return 30 for the test input' do
+    it 'should return the right answer for the test input' do
       @part1_input = File.read("#{__dir__}/part1.input")
       expect(Day052.part2(@part1_input)).to equal(46)
     end
 
-    it 'should return 8467762 for the puzzle input' do
+    it 'should return the right answer for the puzzle input' do
       @puzzle_input = File.read("#{__dir__}/puzzle.input")
       expect(Day052.part2(@puzzle_input)).to equal(100_165_128)
     end
