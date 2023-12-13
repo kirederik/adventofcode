@@ -12,21 +12,6 @@ describe Day10 do
     @puzzle_input = File.readlines("#{__dir__}/puzzle.input", chomp: true)
   end
 
-  # describe '#map_loop' do
-  #   it 'parses the input and maps out the loop' do
-  #     map = %w[..... .S-7. .|.|. .L-J. .....]
-  #     expect(Day10.map_loop(map)).to eq(
-  #       [
-  #         %w[. . . . .],
-  #         %w[. 0 1 2 .],
-  #         %w[. 1 . 3 .],
-  #         %w[. 2 3 4 .],
-  #         %w[. . . . .]
-  #       ]
-  #     )
-  #   end
-  # end
-
   describe '#part1' do
     it 'should return the right answer for the test input' do
       expect(Day10.part1(@part1_input)).to equal(4)
