@@ -1,0 +1,1 @@
+cat input.puzzle | egrep -o 'mul\(\d\d?\d?,\d\d?\d?\)' | tr -d "mul(" | tr "," "*" | tr -d "\)" | bc -l | tr "\n" "+" | sed 's/+$//' | bc -l
