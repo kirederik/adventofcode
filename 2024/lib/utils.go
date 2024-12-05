@@ -17,7 +17,10 @@ func Read(path string) []string {
 	f, err := os.ReadFile(path)
 	check(err)
 	lines := strings.Split(string(f), "\n")
-	return lines[:len(lines)-1]
+	if lines[len(lines)-1] == "" {
+		return lines[:len(lines)-1]
+	}
+	return lines
 }
 
 func ParseLine(line string) []int {
