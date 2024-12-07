@@ -29,7 +29,6 @@ func insert(m map[int][]int, k, v int) {
 	slices.Sort(m[k])
 }
 
-// Updated Guard struct and methods
 type Guard struct {
 	x, y int
 	face string
