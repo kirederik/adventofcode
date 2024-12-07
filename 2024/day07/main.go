@@ -25,6 +25,9 @@ func valid(target int64, acc int64, numbers []int64) bool {
 	if len(numbers) == 0 {
 		return acc == target
 	}
+	if acc > target {
+		return false
+	}
 
 	head := numbers[0]
 	tail := numbers[1:]
@@ -35,6 +38,10 @@ func valid(target int64, acc int64, numbers []int64) bool {
 func validConcat(target int64, acc int64, numbers []int64) bool {
 	if len(numbers) == 0 {
 		return acc == target
+	}
+
+	if acc > target {
+		return false
 	}
 
 	head := numbers[0]
