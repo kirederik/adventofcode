@@ -23,6 +23,16 @@ func Read(path string) []string {
 	return lines
 }
 
+func ReadMatrix(path string) [][]string {
+	lines := Read(path)
+	m := make([][]string, len(lines))
+
+	for i, l := range lines {
+		m[i] = strings.Split(l, "")
+	}
+	return m
+}
+
 func ParseLine(line string) []int {
 	intsStr := strings.Fields(line)
 	ints := make([]int, len(intsStr))
@@ -34,4 +44,22 @@ func ParseLine(line string) []int {
 	}
 
 	return ints
+}
+
+func MapAppend[E comparable, V any](m map[E][]V, k E, el V) {
+	if m[k] == nil {
+		m[k] = []V{el}
+		return
+	}
+	m[k] = append(m[k], el)
+}
+
+func Print[E any](grid [][]E) {
+	for _, r := range grid {
+		for _, c := range r {
+			fmt.Print(c)
+		}
+		fmt.Println()
+	}
+	fmt.Println()
 }
