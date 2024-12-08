@@ -38,7 +38,7 @@ func abs(x, y int) int {
 	return diff
 }
 
-func calcAntinodes(grid [][]string, limits []int, origin Point, to []Point, antinodesMap map[string]bool, echoAntinodes bool) {
+func calcAntinodes(limits []int, origin Point, to []Point, antinodesMap map[string]bool, echoAntinodes bool) {
 
 	if echoAntinodes {
 		antinodesMap[origin.String()] = true
@@ -99,7 +99,6 @@ func calcAntinodes(grid [][]string, limits []int, origin Point, to []Point, anti
 
 		for _, an := range antinodes {
 			if an.x >= 0 && an.x < limits[0] && an.y >= 0 && an.y < limits[1] {
-				grid[an.x][an.y] = "#"
 				antinodesMap[an.String()] = true
 			}
 		}
@@ -114,7 +113,7 @@ func Puzzle01(inputPath string) int64 {
 	antinodesMap := map[string]bool{}
 	for _, pos := range antennas {
 		for i := 0; i < len(pos); i++ {
-			calcAntinodes(grid, limits, pos[i], pos[i+1:], antinodesMap, false)
+			calcAntinodes(limits, pos[i], pos[i+1:], antinodesMap, false)
 		}
 	}
 
@@ -129,7 +128,7 @@ func Puzzle02(inputPath string) int64 {
 	antinodesMap := map[string]bool{}
 	for _, pos := range antennas {
 		for i := 0; i < len(pos); i++ {
-			calcAntinodes(grid, limits, pos[i], pos[i+1:], antinodesMap, true)
+			calcAntinodes(limits, pos[i], pos[i+1:], antinodesMap, true)
 		}
 	}
 
