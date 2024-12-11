@@ -32,6 +32,19 @@ func ReadMatrix(path string) [][]string {
 	}
 	return m
 }
+func ReadIntMatrix(path string) [][]int {
+	lines := Read(path)
+	m := make([][]int, len(lines))
+
+	for i, l := range lines {
+		m[i] = make([]int, len(l))
+		for j, c := range l {
+			n, _ := strconv.Atoi(string(c))
+			m[i][j] = n
+		}
+	}
+	return m
+}
 
 func ParseLine(line string) []int {
 	intsStr := strings.Fields(line)
