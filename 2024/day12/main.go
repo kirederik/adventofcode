@@ -74,30 +74,21 @@ func corners(p Point, grid [][]string) int64 {
 	downright := matchPlant(grid, p.i+1, p.j+1, p.v)
 
 	var corners int64
+	cornerCases := []bool{
+		!up && !left,
+		!right && !up,
+		!down && !left,
+		!down && !right,
+		up && left && !upleft,
+		down && left && !downleft,
+		up && right && !upright,
+		down && right && !downright,
+	}
 
-	if !up && !left {
-		corners++
-	}
-	if !right && !up {
-		corners++
-	}
-	if !down && !left {
-		corners++
-	}
-	if !down && !right {
-		corners++
-	}
-	if up && left && !upleft {
-		corners++
-	}
-	if down && left && !downleft {
-		corners++
-	}
-	if up && right && !upright {
-		corners++
-	}
-	if down && right && !downright {
-		corners++
+	for _, corner := range cornerCases {
+		if corner {
+			corners++
+		}
 	}
 	return corners
 }
