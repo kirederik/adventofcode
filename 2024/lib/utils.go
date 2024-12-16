@@ -76,3 +76,12 @@ func Print[E any](grid [][]E) {
 	}
 	fmt.Println()
 }
+
+func ParseInts(intStrs []string) []int64 {
+	arr := []int64{}
+	for _, str := range intStrs {
+		n, _ := strconv.ParseInt(str, 10, 64)
+		arr = append(arr, n)
+	}
+	return arr
+}
