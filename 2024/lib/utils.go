@@ -85,3 +85,12 @@ func ParseInts(intStrs []string) []int64 {
 	}
 	return arr
 }
+
+func Copy(matrix [][]string) [][]string {
+	duplicate := make([][]string, len(matrix))
+	for i := range matrix {
+		duplicate[i] = make([]string, len(matrix[i]))
+		copy(duplicate[i], matrix[i])
+	}
+	return duplicate
+}
